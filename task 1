@@ -1,0 +1,162 @@
+// 1 Toffee problem
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    int n;
+    long int m,a,c=0,i;
+    cin>>n>>m;
+    vector<long int> v;
+    for(i=0;i<n;i++)
+    {
+        cin>>a;
+        v.push_back(a);
+    }
+    sort(v.begin(),v.end());
+    for(i=0;i<n;i++)
+    {
+        if(m>=v[i])
+        {
+            c++;
+            m-=v[i];
+        }
+        else
+            break;
+            
+    }
+    cout<<c;
+    return 0;
+}
+
+// 2 Button factory
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */  
+    int p,q,r,s;
+    cin>>p>>q>>r>>s;
+    if(r<=q)
+    { if(p<=r)
+      {
+        if(s>=q)
+        {
+            cout<<q-r<<endl;
+        }
+        else{
+            cout<<s-r<<endl;
+        }
+      }
+     else
+     { 
+        if(s>=q)
+        {
+            cout<<q-p<<endl;
+        }
+        else{
+            if(s>=p)
+            cout<<s-p<<endl;
+            else
+                cout<<0;
+        }
+     }
+    }
+    else
+        cout<<0<<endl;
+    return 0;
+}
+
+
+// 3 Lazy lad
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    int nr;
+    cin>>nr;
+    int a[nr],c,r;
+    for(int i=0;i<nr;i++)
+    {
+        c=0,r=0;
+        cin>>a[i];
+        while(a[i]>=++c)
+        {
+            r++;
+            a[i]-=c;
+        }
+        cout<<r<<endl;
+        
+    }
+    return 0;
+}
+
+
+// 4 Harsh prime
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    int n,t,count=0;
+    cin>>n>>t;
+    vector<int>v;
+    for(int i=2;i<=n;i++)
+    {
+        int c=0;
+        for(int j=2;j<=i/2;j++)
+        {
+            if(i%j==0)
+            {
+                c=1;break;
+            }
+                
+        }
+        if(c==0)
+            v.push_back(i);
+    }
+    int l=v.size();
+    for(int i=0;i<l;i++)
+    {
+        int t=v[i]+v[i+1]+1,c1=0;
+        if(t<=n)
+        {
+            for(int j=2;j<=t/2;j++)
+            {
+                if(t%j==0)
+                {
+                    c1=1;break;
+                }
+            }
+            if(c1==0)
+                count++;
+        }
+    }
+    if(count>=t)
+    cout<<"YES"<<endl;
+    else
+      cout<<"NO\n";  
+    return 0;
+}
+
